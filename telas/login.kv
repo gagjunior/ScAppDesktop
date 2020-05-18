@@ -1,3 +1,4 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 #:set cor_fonte (0, 0, 0, 1)
 
 <Login>:
@@ -52,4 +53,4 @@
                 halign: 'left'
                 color: cor_fonte
                 markup: True
-                on_ref_press: root.manager.current = 'cadastro'
+                on_ref_press: root.tela_cadastro()
