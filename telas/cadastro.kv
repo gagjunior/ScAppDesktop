@@ -58,4 +58,14 @@
             BoxLayout:                
                 size_hint: 1, .3          
             Button:
-                text: 'Salvar'         
+                text: 'Salvar'
+            BoxLayout:                
+                size_hint: 1, .3
+            Label:
+                text: 'Cadastrou? Clique [ref=aqui][b][color=0000ff]aqui[/color][/b][/ref] para voltar a tela de login'
+                text_size: self.width, None
+                size: self.texture_size
+                halign: 'left'
+                color: cor_fonte
+                markup: True
+                on_ref_press: root.tela_login()
