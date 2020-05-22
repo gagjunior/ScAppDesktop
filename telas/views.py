@@ -10,12 +10,16 @@ dir_name = os.path.dirname(__file__)
 Builder.load_string(open(f'{dir_name}/splash.kv', encoding='utf-8').read())
 class Splash(Screen):
     def tela_login(self, *args):
+        Window.borderless = False               
         self.manager.transition = FadeTransition()
         self.manager.current = 'login'
         
     def on_enter(self, *args):
         Clock.schedule_once(self.tela_login, 2)
-        print ('Aguarde...')     
+
+    def on_pre_enter(self, *args):
+        Window.borderless = True
+
     
 
 # Tela Login
@@ -26,7 +30,8 @@ class Login(Screen):
         self.manager.current = 'cadastro'
 
     def tela_menu(self):
-        pass  
+        self.manager.transition = FadeTransition()
+        self.manager.current = 'menu_inicio'
 
 
 # Tela Cadastro
@@ -40,8 +45,11 @@ class Cadastro(Screen):
         self.manager.transition.direction = 'right'
         self.manager.current = 'login'
 
+
+Builder.load_string(open(f'{dir_name}/menu.kv', encoding='utf-8').read())
 class MenuInicio(Screen):
-    pass
+    def on_pre_enter(self, *args):
+        Window.set_title('ScApp - Menu')
 
 
 # Gerenciador de Telas
@@ -50,16 +58,5 @@ class Gerenciador(ScreenManager):
         super(Gerenciador, self).__init__(**kwargs)
         self.add_widget(Splash(name='splash'))
         self.add_widget(Login(name='login'))
-        self.add_widget(Cadastro(name='cadastro'))    
-        
-
-
-
-
-
-
-
-
-
-
-
+        self.add_widget(Cadastro(name='cadastro'))
+        self.add_widget(MenuInicio(name='menu_inicio'))
