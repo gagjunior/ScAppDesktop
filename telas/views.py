@@ -6,8 +6,14 @@ import os
 
 dir_name = os.path.dirname(__file__)
 
-# Tela Splash
 Builder.load_string(open(f'{dir_name}/splash.kv', encoding='utf-8').read())
+Builder.load_string(open(f'{dir_name}/login.kv', encoding='utf-8').read())
+Builder.load_string(open(f'{dir_name}/cadastro.kv', encoding='utf-8').read())
+Builder.load_string(open(f'{dir_name}/menu.kv', encoding='utf-8').read())
+Builder.load_string(open(f'{dir_name}/nova_atividade.kv', encoding='utf-8').read())
+
+
+#Tela splash
 class Splash(Screen):
     def tela_login(self, *args):
         Window.borderless = False               
@@ -20,10 +26,8 @@ class Splash(Screen):
     def on_pre_enter(self, *args):
         Window.borderless = True
 
-    
 
 # Tela Login
-Builder.load_string(open(f'{dir_name}/login.kv', encoding='utf-8').read())
 class Login(Screen):
     def tela_cadastro(self):
         self.manager.transition = SlideTransition()      
@@ -35,7 +39,6 @@ class Login(Screen):
 
 
 # Tela Cadastro
-Builder.load_string(open(f'{dir_name}/cadastro.kv', encoding='utf-8').read())
 class Cadastro(Screen):
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Cadastro de Usuário')
@@ -46,10 +49,16 @@ class Cadastro(Screen):
         self.manager.current = 'login'
 
 
-Builder.load_string(open(f'{dir_name}/menu.kv', encoding='utf-8').read())
+# Tela de menu inicial
 class MenuInicio(Screen):
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Menu')
+
+
+#Tela Nova atividade
+class NovaAtividade(Screen):
+    def on_pre_enter(self, *args):
+        Window.set_title('ScApp - Nova Atividade')
 
 
 # Gerenciador de Telas
