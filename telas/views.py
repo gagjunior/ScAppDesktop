@@ -29,30 +29,20 @@ class Splash(Screen):
 
 # Tela Login
 class Login(Screen):
-    def tela_cadastro(self):
-        self.manager.transition = SlideTransition()      
-        self.manager.current = 'cadastro'
-
-    def tela_menu(self):
-        self.manager.transition = FadeTransition()
-        self.manager.current = 'menu_inicio'
+    pass    
 
 
 # Tela Cadastro
 class Cadastro(Screen):
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Cadastro de Usuário')
+        Window.set_title('ScApp - Cadastro de Usuário')   
     
-    def tela_login(self):
-        self.manager.transition = SlideTransition()
-        self.manager.transition.direction = 'right'
-        self.manager.current = 'login'
 
 
 # Tela de menu inicial
 class MenuInicio(Screen):
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Menu')
+        Window.set_title('ScApp - Menu')    
 
 
 #Tela Nova atividade
@@ -69,3 +59,27 @@ class Gerenciador(ScreenManager):
         self.add_widget(Login(name='login'))
         self.add_widget(Cadastro(name='cadastro'))
         self.add_widget(MenuInicio(name='menu_inicio'))
+        self.add_widget(NovaAtividade(name='nova_atividade'))
+
+    def tela_login(self, *args):                    
+        self.transition = SlideTransition()
+        self.transition.direction = 'right'
+        self.current = 'login'
+        
+    def tela_cadastro(self):
+        self.transition = SlideTransition()      
+        self.current = 'cadastro'
+
+    def tela_menu(self):
+        self.transition = FadeTransition()
+        self.current = 'menu_inicio'
+
+    def tela_nova_atividade(self):
+            self.transition = SlideTransition()
+            self.current = 'nova_atividade'
+
+        
+
+
+
+        

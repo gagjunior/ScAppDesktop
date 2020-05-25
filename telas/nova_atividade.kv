@@ -1,1 +1,28 @@
+#:set cor_fonte (0, 0, 0, 1)
+
 <NovaAtividade>:
+    StackLayout:
+        orientation: 'lr-tb'
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text:'Gilberto Araujo Gomes Junior'
+            color: cor_fonte
+        Label:
+            text: 'Publicações'
+            color: cor_fonte
+        TextInput:
+            multiline: False
+            write_tab: False
+        Button:
+            text:'+'
+            color: cor_fonte
+        Button:
+            text:'-'
+            color: cor_fonte
+
+            
