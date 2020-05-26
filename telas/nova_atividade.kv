@@ -1,36 +1,46 @@
 #:set cor_fonte (0, 0, 0, 1)
+#:set larg_txt_input 300
+#: set larg_label 100
+#: set alin_label 'left'
 
 <NovaAtividade>:
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'top'
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
         BoxLayout:
             orientation: 'vertical'
             size_hint: .7, 1
-            canvas.before:
-                Color:
-                    rgba: 1, 1, 1, 1
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+            padding: 8            
             Label:
                 text:'Nome: Gilberto Araujo Gomes Junior'
                 text_size: self.width, None
                 size: self.texture_size
-                halign: 'left'
+                halign: 'center'
                 color: cor_fonte
-                font_size: '20sp'
+                font_size: '30sp'
             GridLayout:
                 cols: 4
+                spacing: 8
+                padding: 8
                 Label:
                     text: 'Publicações'
                     color: cor_fonte
                     text_size: self.width, None
                     size: self.texture_size
-                    halign: 'left'
+                    halign: alin_label
+                    size_hint_x: None
+                    width: larg_label
                 TextInput:
                     multiline: False
                     write_tab: False
+                    size_hint_x: None
+                    width: larg_txt_input
                 Button:
                     text:'+'
                 Button:
@@ -40,25 +50,31 @@
                     color: cor_fonte
                     text_size: self.width, None
                     size: self.texture_size
-                    halign: 'left'
+                    halign: alin_label
+                    size_hint_x: None
+                    width: larg_label
                 TextInput:
                     multiline: False
                     write_tab: False
+                    size_hint_x: None
+                    width: larg_txt_input
                 Button:
-                    text:'+'
-                    size_hint: 1, .2
+                    text:'+'                    
                 Button:
-                    text:'-'
-                    size_hint: 1, .2
+                    text:'-'                    
                 Label:
                     text: 'Horas'
                     color: cor_fonte
                     text_size: self.width, None
                     size: self.texture_size
-                    halign: 'left'
+                    halign: alin_label
+                    size_hint_x: None
+                    width: larg_label
                 TextInput:
                     multiline: False
                     write_tab: False
+                    size_hint_x: None
+                    width: larg_txt_input
                 Button:
                     text:'+'
                 Button:
@@ -68,10 +84,14 @@
                     color: cor_fonte
                     text_size: self.width, None
                     size: self.texture_size
-                    halign: 'left'
+                    halign: alin_label
+                    size_hint_x: None
+                    width: larg_label
                 TextInput:
                     multiline: False
                     write_tab: False
+                    size_hint_x: None
+                    width: larg_txt_input
                 Button:
                     text:'+'
                 Button:
@@ -81,13 +101,33 @@
                     color: cor_fonte
                     text_size: self.width, None
                     size: self.texture_size
-                    halign: 'left'
+                    halign: alin_label
+                    size_hint_x: None
+                    width: larg_label
                 TextInput:
                     multiline: False
                     write_tab: False
+                    size_hint_x: None
+                    width: larg_txt_input
                 Button:
                     text:'+'
                 Button:
                     text:'-'
-            Button:
-                text: 'Salvar'
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'top'
+                StackLayout:
+                    orientation: 'lr-tb'
+                    padding: 8
+                    spacing: 4
+                    size_hint: .6, 1
+                    Button:
+                        text: 'Salvar'
+                        size_hint: None, .20
+                        width: 150
+                    Button:
+                        text: 'Limpar'
+                        size_hint: None, .20
+                        width: 75
+                        
+            
