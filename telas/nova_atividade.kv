@@ -1,28 +1,99 @@
 #:set cor_fonte (0, 0, 0, 1)
 
 <NovaAtividade>:
-    StackLayout:
-        orientation: 'lr-tb'
-        canvas.before:
-            Color:
-                rgba: 1, 1, 1, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        Label:
-            text:'Gilberto Araujo Gomes Junior'
-            color: cor_fonte
-        Label:
-            text: 'Publicações'
-            color: cor_fonte
-        TextInput:
-            multiline: False
-            write_tab: False
-        Button:
-            text:'+'
-            color: cor_fonte
-        Button:
-            text:'-'
-            color: cor_fonte
-
-            
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: .7, 1
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text:'Nome: Gilberto Araujo Gomes Junior'
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                    color: cor_fonte
+                    font_size: '20sp'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Publicações'
+                    color: cor_fonte
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text:'+'
+                Button:
+                    text:'-'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Vídeos'
+                    color: cor_fonte
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text:'+'
+                Button:
+                    text:'-'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Horas'
+                    color: cor_fonte
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text:'+'
+                Button:
+                    text:'-'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Revisitas'
+                    color: cor_fonte
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text:'+'
+                Button:
+                    text:'-'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Estudos'
+                    color: cor_fonte
+                    text_size: self.width, None
+                    size: self.texture_size
+                    halign: 'left'
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text:'+'
+                Button:
+                    text:'-'

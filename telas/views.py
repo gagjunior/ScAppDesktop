@@ -13,15 +13,15 @@ Builder.load_string(open(f'{dir_name}/menu.kv', encoding='utf-8').read())
 Builder.load_string(open(f'{dir_name}/nova_atividade.kv', encoding='utf-8').read())
 
 
-#Tela splash
+# Tela splash
 class Splash(Screen):
-    def tela_login(self, *args):
+    def inicio(self, *args):
         Window.borderless = False               
         self.manager.transition = FadeTransition()
         self.manager.current = 'login'
         
     def on_enter(self, *args):
-        Clock.schedule_once(self.tela_login, 2)
+        Clock.schedule_once(self.inicio, 2)
 
     def on_pre_enter(self, *args):
         Window.borderless = True
@@ -35,8 +35,7 @@ class Login(Screen):
 # Tela Cadastro
 class Cadastro(Screen):
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Cadastro de Usuário')   
-    
+        Window.set_title('ScApp - Cadastro de Usuário')
 
 
 # Tela de menu inicial
@@ -45,7 +44,7 @@ class MenuInicio(Screen):
         Window.set_title('ScApp - Menu')    
 
 
-#Tela Nova atividade
+# Tela Nova atividade
 class NovaAtividade(Screen):
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Nova Atividade')
@@ -75,8 +74,8 @@ class Gerenciador(ScreenManager):
         self.current = 'menu_inicio'
 
     def tela_nova_atividade(self):
-            self.transition = SlideTransition()
-            self.current = 'nova_atividade'
+        self.transition = SlideTransition()
+        self.current = 'nova_atividade'
 
         
 
