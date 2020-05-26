@@ -13,17 +13,15 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            BoxLayout:
-                orientation: 'horizontal'
-                Label:
-                    text:'Nome: Gilberto Araujo Gomes Junior'
-                    text_size: self.width, None
-                    size: self.texture_size
-                    halign: 'left'
-                    color: cor_fonte
-                    font_size: '20sp'
-            BoxLayout:
-                orientation: 'horizontal'
+            Label:
+                text:'Nome: Gilberto Araujo Gomes Junior'
+                text_size: self.width, None
+                size: self.texture_size
+                halign: 'left'
+                color: cor_fonte
+                font_size: '20sp'
+            GridLayout:
+                cols: 4
                 Label:
                     text: 'Publicações'
                     color: cor_fonte
@@ -37,8 +35,6 @@
                     text:'+'
                 Button:
                     text:'-'
-            BoxLayout:
-                orientation: 'horizontal'
                 Label:
                     text: 'Vídeos'
                     color: cor_fonte
@@ -50,10 +46,10 @@
                     write_tab: False
                 Button:
                     text:'+'
+                    size_hint: 1, .2
                 Button:
                     text:'-'
-            BoxLayout:
-                orientation: 'horizontal'
+                    size_hint: 1, .2
                 Label:
                     text: 'Horas'
                     color: cor_fonte
@@ -67,8 +63,6 @@
                     text:'+'
                 Button:
                     text:'-'
-            BoxLayout:
-                orientation: 'horizontal'
                 Label:
                     text: 'Revisitas'
                     color: cor_fonte
@@ -82,8 +76,6 @@
                     text:'+'
                 Button:
                     text:'-'
-            BoxLayout:
-                orientation: 'horizontal'
                 Label:
                     text: 'Estudos'
                     color: cor_fonte
@@ -97,3 +89,5 @@
                     text:'+'
                 Button:
                     text:'-'
+            Button:
+                text: 'Salvar'
