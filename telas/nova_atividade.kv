@@ -14,10 +14,18 @@
             Rectangle:
                 pos: self.pos
                 size: self.size
+        ActionBar:
+            pos_hint: {'top':1}
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Menu'
+                    with_previous: False
+                    on_press: app.root.tela_menu()
         BoxLayout:
             orientation: 'vertical'
             size_hint: .8, 1
-            padding: 8            
+            padding: 8, 16, 8, 8                                              
             Label:
                 text:'Nome: Gilberto Araujo Gomes Junior'
                 text_size: self.width, None
@@ -28,17 +36,24 @@
                 font_size: '30sp'
             StackLayout:
                 orientation: 'lr-tb'
-                padding: 8
-                spacing: 4
-                size_hint_y: .25
+                padding: 115, 0, 8, 0
+                spacing: 6
+                size_hint_y: .18                
                 Spinner:
                     text: 'Mes'
                     values: lista_meses
-                    size_hint: .50, 1
+                    size_hint: .60, 1
+                Label:
+                    text: 'Ano:'
+                    size_hint: .20, 1
+                    text_size: self.width, None
+                    size: self.texture_size
+                    color: cor_fonte
+                    halign: 'center'
                 TextInput:
                     multiline: False
                     write_tab: False
-                    size_hint: .50, 1
+                    size_hint: .20, 1
             GridLayout:
                 cols: 4
                 spacing: 8
