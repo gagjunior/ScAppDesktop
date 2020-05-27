@@ -16,12 +16,13 @@
                 size: self.size
         BoxLayout:
             orientation: 'vertical'
-            size_hint: .7, 1
+            size_hint: .8, 1
             padding: 8            
             Label:
                 text:'Nome: Gilberto Araujo Gomes Junior'
                 text_size: self.width, None
                 size: self.texture_size
+                size_hint_y: .50
                 halign: 'center'
                 color: cor_fonte
                 font_size: '30sp'
@@ -29,14 +30,15 @@
                 orientation: 'lr-tb'
                 padding: 8
                 spacing: 4
+                size_hint_y: .25
                 Spinner:
                     text: 'Mes'
                     values: lista_meses
-                    size_hint: .50, .30
+                    size_hint: .50, 1
                 TextInput:
                     multiline: False
                     write_tab: False
-                    size_hint: .50, .30
+                    size_hint: .50, 1
             GridLayout:
                 cols: 4
                 spacing: 8
