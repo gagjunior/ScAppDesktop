@@ -2,6 +2,7 @@
 #:set larg_txt_input 300
 #: set larg_label 100
 #: set alin_label 'left'
+#: set lista_meses ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]
 
 <NovaAtividade>:
     AnchorLayout:
@@ -24,6 +25,18 @@
                 halign: 'center'
                 color: cor_fonte
                 font_size: '30sp'
+            StackLayout:
+                orientation: 'lr-tb'
+                padding: 8
+                spacing: 4
+                Spinner:
+                    text: 'Mes'
+                    values: lista_meses
+                    size_hint: .50, .30
+                TextInput:
+                    multiline: False
+                    write_tab: False
+                    size_hint: .50, .30
             GridLayout:
                 cols: 4
                 spacing: 8
