@@ -1,8 +1,9 @@
+#:include telas/menu_bar.kv
 #:set cor_fonte (0, 0, 0, 1)
 #:set larg_txt_input 300
-#: set larg_label 100
-#: set alin_label 'left'
-#: set lista_meses ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]
+#:set larg_label 100
+#:set alin_label 'left'
+#:set lista_meses ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]
 
 <NovaAtividade>:
     AnchorLayout:
@@ -14,14 +15,7 @@
             Rectangle:
                 pos: self.pos
                 size: self.size
-        ActionBar:
-            pos_hint: {'top':1}
-            ActionView:
-                use_separator: True
-                ActionPrevious:
-                    title: 'Menu'
-                    with_previous: False
-                    on_press: app.root.tela_menu()
+        MenuBar:
         BoxLayout:
             orientation: 'vertical'
             size_hint: .8, 1
