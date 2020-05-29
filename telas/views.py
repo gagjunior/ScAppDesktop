@@ -2,6 +2,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, SlideTransition
 from kivy.core.window import Window
 from kivy.clock import Clock
+from kivy.properties import ObjectProperty
 import os
 
 dir_name = os.path.dirname(__file__)
@@ -41,13 +42,18 @@ class Cadastro(Screen):
 # Tela de menu inicial
 class MenuInicio(Screen):
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Menu')    
+        Window.set_title('ScApp - Menu')
+
 
 
 # Tela Nova atividade
 class NovaAtividade(Screen):
+    txt_pub = ObjectProperty()
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Nova Atividade')
+
+    def adicionarPub(self):
+        self.txt_pub.text = str("1")
 
 
 # Gerenciador de Telas
