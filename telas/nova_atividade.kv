@@ -6,8 +6,11 @@
 #:set lista_meses ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]
 
 <NovaAtividade>:
-    txt_pub: txt_pub
+    txt_pub: txt_pub    
     txt_video: txt_video
+    txt_horas: txt_horas
+    txt_revisitas: txt_revisitas
+    txt_estudos: txt_estudos
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'top'
@@ -69,9 +72,11 @@
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
+                    id: btn_adc_pub
                     text:'+'
+                    on_press: root.adicionarPub(txt_pub)
                 Button:
-                    text:'-'
+                    text:'-'                    
                 Label:
                     text: 'Vídeos'
                     color: cor_fonte
@@ -87,7 +92,8 @@
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
-                    text:'+'                    
+                    text:'+' 
+                    on_press: root.adicionarPub(txt_video)                  
                 Button:
                     text:'-'                    
                 Label:
@@ -99,12 +105,14 @@
                     size_hint_x: None
                     width: larg_label
                 TextInput:
+                    id: txt_horas
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionarPub(txt_horas)
                 Button:
                     text:'-'
                 Label:
@@ -116,12 +124,14 @@
                     size_hint_x: None
                     width: larg_label
                 TextInput:
+                    id: txt_revisitas
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionarPub(txt_revisitas)
                 Button:
                     text:'-'
                 Label:
@@ -133,12 +143,14 @@
                     size_hint_x: None
                     width: larg_label
                 TextInput:
+                    id: txt_estudos
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionarPub(txt_estudos)
                 Button:
                     text:'-'
             AnchorLayout:

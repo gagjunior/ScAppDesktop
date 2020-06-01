@@ -48,12 +48,15 @@ class MenuInicio(Screen):
 
 # Tela Nova atividade
 class NovaAtividade(Screen):
-    txt_pub = ObjectProperty()
+    valor = 1
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Nova Atividade')
 
-    def adicionarPub(self):
-        self.txt_pub.text = str("1")
+    def adicionarPub(self, txt):
+        txt.text = str(self.valor)
+        self.valor += 1    
+
+        
 
 
 # Gerenciador de Telas
