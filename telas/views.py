@@ -48,15 +48,33 @@ class MenuInicio(Screen):
 
 # Tela Nova atividade
 class NovaAtividade(Screen):
-    valor = 1
+    txt_pub = ObjectProperty
+    txt_video = ObjectProperty
+    txt_horas = ObjectProperty
+    txt_revisitas = ObjectProperty
+    txt_estudos = ObjectProperty() 
+
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Nova Atividade')
+        self.zera_valores()       
 
-    def adicionarPub(self, txt):
-        txt.text = str(self.valor)
-        self.valor += 1    
+    def zera_valores(self):
+        self.txt_pub.text = str(0)
+        self.txt_video.text = str(0)
+        self.txt_horas.text = str(0)
+        self.txt_revisitas.text = str(0)
+        self.txt_estudos.text = str(0)            
 
-        
+    def adicionar_valor(self, txt):                  
+        valor = int(txt.text)
+        valor += 1
+        txt.text = str(valor)
+
+    def diminuir_valor(self, txt):                  
+        valor = int(txt.text)
+        if valor > 0:
+            valor -= 1
+            txt.text = str(valor)     
 
 
 # Gerenciador de Telas
