@@ -1,9 +1,11 @@
 from kivy.lang import Builder
+from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, SlideTransition
 from kivy.core.window import Window
 from kivy.clock import Clock
 from kivy.properties import ObjectProperty
 import os
+import re
 
 dir_name = os.path.dirname(__file__)
 
@@ -44,6 +46,11 @@ class MenuInicio(Screen):
     def on_pre_enter(self, *args):
         Window.set_title('ScApp - Menu')
 
+# Campo para inserir apenas numeros
+class NumberInput(TextInput):
+    def insert_text(self, substring, from_undo=False):
+        valor = re.sub('[^0-9]', '', substring)
+        return super(NumberInput, self).insert_text(valor, from_undo=from_undo)
 
 
 # Tela Nova atividade
@@ -55,22 +62,25 @@ class NovaAtividade(Screen):
     txt_estudos = ObjectProperty() 
 
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Nova Atividade')
-        self.zera_valores()       
+        Window.set_title('ScApp - Nova Atividade')             
 
     def zera_valores(self):
-        self.txt_pub.text = str(0)
-        self.txt_video.text = str(0)
-        self.txt_horas.text = str(0)
-        self.txt_revisitas.text = str(0)
-        self.txt_estudos.text = str(0)            
+        self.txt_pub.text = ''
+        self.txt_video.text = ''
+        self.txt_horas.text = ''
+        self.txt_revisitas.text = ''
+        self.txt_estudos.text = ''          
 
-    def adicionar_valor(self, txt):                  
+    def adicionar_valor(self, txt):
+        if txt.text == '':
+            txt.text = str(0)     
         valor = int(txt.text)
         valor += 1
         txt.text = str(valor)
 
-    def diminuir_valor(self, txt):                  
+    def diminuir_valor(self, txt):
+        if txt.text == '':
+            txt.text = str(0)                 
         valor = int(txt.text)
         if valor > 0:
             valor -= 1
@@ -103,9 +113,3 @@ class Gerenciador(ScreenManager):
     def tela_nova_atividade(self):
         self.transition = SlideTransition()
         self.current = 'nova_atividade'
-
-        
-
-
-
-        

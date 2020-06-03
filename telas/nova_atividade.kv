@@ -37,11 +37,22 @@
                 orientation: 'lr-tb'
                 padding: 115, 0, 8, 0
                 spacing: 6
-                size_hint_y: .18                
+                size_hint_y: .18
+                Label:
+                    text: 'Dia'
+                    size_hint: .05, 1
+                    text_size: self.width, None
+                    size: self.texture_size
+                    color: cor_fonte
+                    halign: 'left'
+                NumberInput:
+                    multiline: False
+                    write_tab: False
+                    size_hint: .10, 1                                   
                 Spinner:
                     text: 'Mes'
                     values: lista_meses
-                    size_hint: .60, 1
+                    size_hint: .35, 1
                 Label:
                     text: 'Ano:'
                     size_hint: .20, 1
@@ -49,7 +60,7 @@
                     size: self.texture_size
                     color: cor_fonte
                     halign: 'center'
-                TextInput:
+                NumberInput:
                     multiline: False
                     write_tab: False
                     size_hint: .20, 1
@@ -65,7 +76,7 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_pub
                     multiline: False
                     write_tab: False
@@ -86,7 +97,7 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_video
                     multiline: False
                     write_tab: False
@@ -106,7 +117,7 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_horas
                     multiline: False
                     write_tab: False
@@ -126,7 +137,7 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_revisitas
                     multiline: False
                     write_tab: False
@@ -146,7 +157,7 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_estudos
                     multiline: False
                     write_tab: False
