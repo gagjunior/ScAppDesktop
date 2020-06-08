@@ -52,6 +52,18 @@ class NumberInput(TextInput):
         valor = re.sub('[^0-9]', '', substring)
         return super(NumberInput, self).insert_text(valor, from_undo=from_undo)
 
+# Campo para inserir dia
+class DiaInput(TextInput):
+    def insert_text(self, substring, from_undo=False):
+        valor = re.sub('[^0-9]', '', substring[:2 - len(self.text)])
+        return super(DiaInput, self).insert_text(valor, from_undo=from_undo)
+
+class AnoInput(TextInput):
+    def insert_text(self, substring, from_undo=False):
+        valor = re.sub('[^0-9]', '', substring[:4 - len(self.text)])
+        return super(AnoInput, self).insert_text(valor, from_undo=from_undo)
+
+
 
 # Tela Nova atividade
 class NovaAtividade(Screen):
@@ -59,12 +71,17 @@ class NovaAtividade(Screen):
     txt_video = ObjectProperty
     txt_horas = ObjectProperty
     txt_revisitas = ObjectProperty
-    txt_estudos = ObjectProperty() 
+    txt_estudos = ObjectProperty
+    txt_dia = ObjectProperty
+    txt_ano = ObjectProperty
 
     def on_pre_enter(self, *args):
-        Window.set_title('ScApp - Nova Atividade')             
+        Window.set_title('ScApp - Nova Atividade')  
+        self.zera_valores()           
 
     def zera_valores(self):
+        self.txt_dia.text = ''
+        self.txt_ano.text = ''
         self.txt_pub.text = ''
         self.txt_video.text = ''
         self.txt_horas.text = ''

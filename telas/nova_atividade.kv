@@ -11,6 +11,8 @@
     txt_horas: txt_horas
     txt_revisitas: txt_revisitas
     txt_estudos: txt_estudos
+    txt_ano: txt_ano
+    txt_dia: txt_dia
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'top'
@@ -45,7 +47,8 @@
                     size: self.texture_size
                     color: cor_fonte
                     halign: 'left'
-                NumberInput:
+                DiaInput:
+                    id: txt_dia
                     multiline: False
                     write_tab: False
                     size_hint: .10, 1                                   
@@ -60,7 +63,8 @@
                     size: self.texture_size
                     color: cor_fonte
                     halign: 'center'
-                NumberInput:
+                AnoInput:
+                    id: txt_ano
                     multiline: False
                     write_tab: False
                     size_hint: .20, 1
