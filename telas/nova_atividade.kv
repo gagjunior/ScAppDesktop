@@ -9,7 +9,12 @@
     txt_pub: txt_pub
     btn_pub: btn_pub
     txt_video: txt_video
-    btn_video: btn_video
+    btn_video: btn_video    
+    txt_horas: txt_horas
+    txt_revisitas: txt_revisitas
+    txt_estudos: txt_estudos
+    txt_ano: txt_ano
+    txt_dia: txt_dia
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'top'
@@ -36,11 +41,23 @@
                 orientation: 'lr-tb'
                 padding: 115, 0, 8, 0
                 spacing: 6
-                size_hint_y: .18                
+                size_hint_y: .18
+                Label:
+                    text: 'Dia'
+                    size_hint: .05, 1
+                    text_size: self.width, None
+                    size: self.texture_size
+                    color: cor_fonte
+                    halign: 'left'
+                DiaInput:
+                    id: txt_dia
+                    multiline: False
+                    write_tab: False
+                    size_hint: .10, 1                                   
                 Spinner:
                     text: 'Mes'
                     values: lista_meses
-                    size_hint: .60, 1
+                    size_hint: .35, 1
                 Label:
                     text: 'Ano:'
                     size_hint: .20, 1
@@ -48,7 +65,8 @@
                     size: self.texture_size
                     color: cor_fonte
                     halign: 'center'
-                TextInput:
+                AnoInput:
+                    id: txt_ano
                     multiline: False
                     write_tab: False
                     size_hint: .20, 1
@@ -64,18 +82,19 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_pub
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
-                    id: btn_pub
+                    id: btn_adc_pub
                     text:'+'
-                    on_press: root.adicionar_pub()
+                    on_press: root.adicionar_valor(txt_pub)
                 Button:
                     text:'-'
+                    on_press: root.diminuir_valor(txt_pub)                   
                 Label:
                     text: 'Vídeos'
                     color: cor_fonte
@@ -84,18 +103,18 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
                     id: txt_video
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
-                    id: btn_video
-                    text:'+'
-                    on_press: root.adicionar_pub()
+                    text:'+' 
+                    on_press: root.adicionar_valor(txt_video)                  
                 Button:
-                    text:'-'                    
+                    text:'-'
+                    on_press: root.diminuir_valor(txt_video)                    
                 Label:
                     text: 'Horas'
                     color: cor_fonte
@@ -104,15 +123,18 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
+                    id: txt_horas
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionar_valor(txt_horas)
                 Button:
                     text:'-'
+                    on_press: root.diminuir_valor(txt_horas)
                 Label:
                     text: 'Revisitas'
                     color: cor_fonte
@@ -121,15 +143,18 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
+                    id: txt_revisitas
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionar_valor(txt_revisitas)
                 Button:
                     text:'-'
+                    on_press: root.diminuir_valor(txt_revisitas)
                 Label:
                     text: 'Estudos'
                     color: cor_fonte
@@ -138,15 +163,18 @@
                     halign: alin_label
                     size_hint_x: None
                     width: larg_label
-                TextInput:
+                NumberInput:
+                    id: txt_estudos
                     multiline: False
                     write_tab: False
                     size_hint_x: None
                     width: larg_txt_input
                 Button:
                     text:'+'
+                    on_press: root.adicionar_valor(txt_estudos)
                 Button:
                     text:'-'
+                    on_press: root.diminuir_valor(txt_estudos)
             AnchorLayout:
                 anchor_x: 'center'
                 anchor_y: 'top'
@@ -163,5 +191,6 @@
                         text: 'Limpar'
                         size_hint: None, .20
                         width: 75
+                        on_press: root.zera_valores()
                         
             
