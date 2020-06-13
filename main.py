@@ -13,4 +13,3 @@ class ScApp(App):
 
 if __name__ == "__main__":
     ScApp().run()
-    
